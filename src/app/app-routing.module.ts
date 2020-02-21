@@ -1,8 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BlogComponent } from './blog/blog.component';
+import { NuevoPostComponent } from './nuevo-post/nuevo-post.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/blog' },
+  { path: 'blog', component: BlogComponent },
+  { path: 'blog/:blogId', component: BlogComponent },
+  { path: 'nuevo', component: NuevoPostComponent },
+  { path: '**', redirectTo: '/blog' }//404 si da tiempo
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
