@@ -1,22 +1,25 @@
 export class Post {
   id: number;
-  titulo: number;
-  texto: string;
+  titulo: string;
   autor: string;
   fecha: Date;
   categoria: string;
+  imagen: string;
+  texto: string;
   constructor(
     id: number,
-    titulo: number,
-    texto: string,
+    titulo: string,
     autor: string,
-    fecha: Date,
-    categoria: string, ) {
+    categoria: string,
+    imagen: string,
+    texto: string,
+  ) {
     this.id = id;
     this.titulo = titulo;
-    this.texto = texto;
     this.autor = autor;
     this.fecha = new Date();
     this.categoria = categoria;
+    this.imagen = imagen;
+    this.texto = texto;
   }
 }
