@@ -1,1 +1,19 @@
-<p>blog works!</p>
+<section class="container">
+  <label>Selecciona una categoría
+    <select name="" id="" (change)="recogerCategoria($event)">
+      <option value="">Todas</option>
+      <option value="categoria1">Categoría 1</option>
+      <option value="categoria2">Categoría 2</option>
+    </select>
+  </label>
+  <h2>Últimos posts</h2>
+  <div class="grid">
+    <article *ngFor="let post of arrPosts">
+      <h3>{{post.titulo}}</h3>
+      <div class="imgCont">
+        <img [src]="post.imagen" alt="">
+      </div>
+      <h4>Creado por {{post.autor}} <span>{{post.fecha | date:'hh:mm'}}</span></h4>
+    </article>
+  </div>
+</section>
