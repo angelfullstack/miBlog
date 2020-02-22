@@ -18,9 +18,10 @@ export class Post {
     this.id = id;
     this.titulo = titulo;
     this.autor = autor;
-    this.fecha = fecha;
     this.categoria = categoria;
     this.texto = texto;
     this.imagen = imagen;
+    this.fecha = fecha;
   }
 }
+
