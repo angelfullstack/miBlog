@@ -22,4 +22,6 @@ export class BlogComponent implements OnInit {
     this.arrPosts = await this.postService.getByCategory(category);
 
   }
+
+
 }

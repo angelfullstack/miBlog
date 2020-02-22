@@ -1,1 +1,36 @@
-<p>nuevo-post works!</p>
+
+<!--   titulo: new FormControl(),
+      autor: new FormControl(),
+      categoria: new FormControl(),
+      imagen: new FormControl(),
+      texto: new FormControl(), -->
+      <section class="nuevoPost">
+        <h2>Nuevo Post</h2>
+        <form [formGroup]="nuevoPostForm" (ngSubmit)="manejarNuevoPost()">
+          <label>
+            Título:
+            <input type="text" formControlName="titulo">
+          </label>
+          <label>
+            Autor:
+            <input type="text" formControlName="autor">
+          </label>
+          <label>
+            Categoria:
+            <select formControlName="categoria">
+              <option value="categoria1">Categoría 1</option>
+              <option value="categoria2">Categoría 2</option>
+            </select>
+          </label>
+          <label>
+            Imagen de portada:
+            <input type="text" formControlName="imagen">
+          </label>
+          <label>
+            Título:
+            <textarea formControlName="texto">Escribe aquí tu post...</textarea>
+          </label>
+          <input type="submit">
+
+        </form>
+      </section>

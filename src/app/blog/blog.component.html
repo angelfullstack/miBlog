@@ -13,7 +13,8 @@
       <div class="imgCont">
         <img [src]="post.imagen" alt="">
       </div>
-      <h4>Creado por {{post.autor}} <span>{{post.fecha | date:'hh:mm'}}</span></h4>
+      <p [innerHtml]="post.texto" ></p>
+      <h4>Creado por {{post.autor}} <span>{{post.fecha | date:'dd/MM/yyyy'}} a las {{post.fecha | date:'hh:mm'}}</span></h4>
     </article>
   </div>
 </section>

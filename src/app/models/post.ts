@@ -12,7 +12,7 @@ export class Post {
     autor: string,
     categoria: string,
     texto: string,
-    imagen: string = 'https://picsum.photos/200/300',
+    imagen: string,
     fecha: Date = new Date()
   ) {
     this.id = id;
