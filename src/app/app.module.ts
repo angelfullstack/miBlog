@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { NuevoPostComponent } from './nuevo-post/nuevo-post.component';
 import { BlogComponent } from './blog/blog.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NuevoPostComponent,
     BlogComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@
       </div>
       <p [innerHtml]="post.texto" ></p>
       <h4>Creado por {{post.autor}} <span>{{post.fecha | date:'dd/MM/yyyy'}} a las {{post.fecha | date:'hh:mm'}}</span></h4>
+      <button (click)="manejarBorrar(post.id)">Borrar</button>
     </article>
   </div>
 </section>

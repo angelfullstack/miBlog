@@ -23,5 +23,8 @@ export class BlogComponent implements OnInit {
 
   }
 
-
+  async manejarBorrar(id) {
+    console.log(id);
+    this.arrPosts = await this.postService.deletePost(id);
+  }
 }

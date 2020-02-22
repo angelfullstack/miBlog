@@ -63,8 +63,6 @@ export class PostService {
   }
 
   addPost(post: any): Promise<Post[]> {
-
-
     const prom = new Promise<Post[]>((resolve, reject) => {
       const nuevoPost: Post = {
         id: this.id,
@@ -80,13 +78,20 @@ export class PostService {
       console.log(this.arrPosts)
       resolve(this.arrPosts);
     })
-    localStorage.setItem('posts',JSON.stringify(this.arrPosts));
+    localStorage.setItem('posts', JSON.stringify(this.arrPosts));
+    this.id++;
     return prom;
 
   }
 
-  deletePost(id){
+  deletePost(id) {
     console.log(id)
+    const prom = new Promise<Post[]>((resolve, reject) => {
+      this.arrPosts.splice(this.arrPosts.findIndex(post => post.id === id),1);
+      resolve(this.arrPosts);
+    })
+    localStorage.setItem('posts', JSON.stringify(this.arrPosts));
+    return prom;
   }
 }
 /*
