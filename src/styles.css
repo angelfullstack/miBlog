@@ -1,14 +1,16 @@
 @import url('reset.css');
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap');
 :root {
-  --color1: #fafafa;
-  --color2: #2c2c2c;
-  --color22: #2c2c2ccc;
-  --color3:  #85e6c5;
-  --color4: #38f;
-  --color5: #34a;
-  --color6: #bbbbbb;
-  --color7: #44aa88;
+  --color1: #fffffa;
+  --color11: #fffffacc;
+  --color111: #f0f0fa;
+  --color2: #23292e;
+  --color22: #23292eff;
+  --color3: #55ad7a;
+  --color4: #1e5d88;
+  --color5: #334d5c;
+  --color6: #d5d5d5;
+  --color7: #55ad7a;
   --color8: #cc4444;
 }
 
@@ -17,15 +19,33 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
-  background: var(--color3);
+  font-family: 'Rubik', sans-serif;
+  background: linear-gradient(var(--color1), var(--color111));
   color: var(--color2)
 }
 
-h2 {
+h2, h3 {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
   color: var(--color1);
   text-shadow: .065em .065em .125em var(--color22);
+  margin: .5em 0 1em;
+}
+
+h3 {
+  font-size: 1.125rem;
+  color: var(--color4);
+  transition: .5s;
+  text-shadow: 0em .0em .125em var(--color11);
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }

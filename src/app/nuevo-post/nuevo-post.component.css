@@ -3,8 +3,7 @@
 }
 
 .nuevoPost {
-  margin: 0 auto;
-  width: 70%;
+
 }
 
 .nuevoPost h2 {}
@@ -53,6 +52,9 @@ textarea.campo {
   margin: 0 auto;
   box-shadow: .125em .125em .25em var(--color22);
   font-weight: bold;
+  background: var(--color7);
+  color:var(--color1);
+
 }
 
 .mandatory::before {

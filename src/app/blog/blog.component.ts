@@ -24,10 +24,7 @@ export class BlogComponent implements OnInit {
     this.arrPosts = await this.postService.getByCategory(category);
   }
 
-  async manejarBorrar(id) {
-    console.log(id);
-    this.arrPosts = await this.postService.deletePost(id);
-  }
+
 
   manejarEntrar(titulo) {
     const tituloUrl = titulo.replace(/ /g, '-');

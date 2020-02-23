@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../models/post';
 
@@ -12,7 +12,7 @@ export class PostComponent implements OnInit {
   postName: string;
   post: Post;
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
+  constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private router: Router) {
     this.post = new Post(undefined, '', '', '', '', '');
     this.postName = '';
   }
@@ -22,6 +22,12 @@ export class PostComponent implements OnInit {
     console.log(this.postName);
     this.postName = this.postName.replace(/-/g, ' ');
     this.post = await this.postService.getPost(this.postName);
+  }
+
+  async manejarBorrar(id) {
+    console.log(id);
+    await this.postService.deletePost(id);
+    this.router.navigate(['/blog']);
   }
 
 }

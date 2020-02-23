@@ -1,0 +1,55 @@
+.post {
+  height: auto;
+}
+
+.imgCont {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.imgCont .cabecera {
+  position: absolute;
+  top: 1em;
+  left: 2em;
+  background: var(--color11);
+  border-radius: .25em;
+  padding: 1em;
+}
+
+.imgCont .datos {
+  position: absolute;
+  bottom: 2em;
+  left:50%;
+  transform: translateX(-50%);
+  background: var(--color1);
+  padding: 1em;
+
+  font-size: .7rem;
+}
+
+.imgCont img {
+  display: block;
+  width: 100%;
+}
+
+section p {
+  font-size: 1.125em;
+  padding: 0 2em;
+  line-height: 1.5em;
+}
+
+section button{
+  display: block;
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background:var(--color8);
+  margin: 1em;
+  color:var(--color1);
+  padding:.5em;
+  font-weight: bold;
+  border-radius: .25em;
+}

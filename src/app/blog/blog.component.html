@@ -1,22 +1,25 @@
-<section class="container">
-  <label>Selecciona una categoría
+<section class="container-fluid">
+
+  <h2>Últimos posts</h2>
+  <div class="filtros container">
+    <label>Selecciona una categoría</label>
     <select name="" id="" (change)="recogerCategoria($event)">
       <option value="">Todas</option>
       <option value="categoria1">Categoría 1</option>
       <option value="categoria2">Categoría 2</option>
     </select>
-  </label>
-  <h2>Últimos posts</h2>
-  <div class="grid">
-    <article *ngFor="let post of arrPosts">
-      <h3>{{post.titulo}}</h3>
-      <div class="imgCont">
+  </div>
+
+  <div class="container">
+    <div class="flex">
+
+      <article class="miniCont" *ngFor="let post of arrPosts" (click)="manejarEntrar(post.titulo)">
+
         <img [src]="post.imagen" alt="">
-      </div>
-      <p [innerHtml]="post.texto" ></p>
-      <h4>Creado por {{post.autor}} <span>{{post.fecha | date:'dd/MM/yyyy'}} a las {{ post.fecha | date:'hh:mm'}}</span></h4>
-      <button (click)="manejarBorrar(post.id)">Borrar</button>
-      <button (click)="manejarEntrar(post.titulo)">Borrar</button>
-    </article>
+        <h3>{{post.titulo}}</h3>
+
+
+      </article>
+    </div>
   </div>
 </section>

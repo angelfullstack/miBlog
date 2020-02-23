@@ -3,9 +3,9 @@
       categoria: new FormControl(),
       imagen: new FormControl(),
       texto: new FormControl(), -->
-<section class="nuevoPost">
+<section class="nuevoPost container-fluid">
   <h2>Nuevo Post</h2>
-  <form class="nuevoPostForm" [formGroup]="nuevoPostForm" (ngSubmit)="manejarNuevoPost()">
+  <form class="nuevoPostForm container" [formGroup]="nuevoPostForm" (ngSubmit)="manejarNuevoPost()">
     <div class="form-control">
       <label class="mandatory">Título:</label>
       <input class="campo" type="text" formControlName="titulo">
