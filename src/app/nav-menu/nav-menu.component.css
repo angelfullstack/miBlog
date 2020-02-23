@@ -1,0 +1,43 @@
+*{
+}
+.wrapper{
+
+}
+
+header{
+  position: relative;
+  height:3rem;
+
+}
+
+header h1, header nav{
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+header h1{
+  left:2rem;
+  font-size:3rem;
+font-weight: bold;
+}
+
+header nav{
+  right:2rem;
+}
+header nav ul{
+
+
+}
+
+header nav li{
+  float:left;
+}
+
+.row::after{
+  content:'';
+  display: block;
+  clear:both;
+  height: 0;
+
+}

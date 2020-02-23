@@ -1,5 +1,6 @@
 /*Implementar area de usuario
-boton resetear blog que borra local storage y repone posts por defecto  */
+boton resetear blog que borra local storage y repone posts por defecto
+verificar en formulario si nombre de post existe */
 import { Injectable } from '@angular/core';
 import { Post } from './models/post';
 
@@ -34,10 +35,13 @@ export class PostService {
           'https://picsum.photos/id/5/600/600', new Date(`2020-02-21T13:42`)),
       ];
     }
+
+    //Las ID se almacenan en el storage para que cada vez que se refresque se conserve el contador de las ID
     if (localStorage.getItem('lastId')) {
       this.id = JSON.parse(localStorage.getItem('lastId'))
     } else {
-      this.id = 6;
+      //Si no hay lastID en LS se usa la siguiente posición de arrPosts
+      this.id = this.arrPosts.length + 1;
     }
   }
 
@@ -48,7 +52,6 @@ export class PostService {
       resolve(this.arrPosts);
     })
     return prom;
-
   }
 
   getByCategory(category: string): Promise<Post[]> {
@@ -62,7 +65,6 @@ export class PostService {
       }
     })
     return prom;
-
   }
 
   addPost(post: Post): Promise<Post[]> {
@@ -73,7 +75,7 @@ export class PostService {
         autor: post.autor,
         categoria: post.categoria,
         texto: post.texto,
-        imagen: ((post.imagen === null) ? 'https://picsum.photos/600/600' : post.imagen),
+        imagen: ((post.imagen === null || post.imagen === '') ? 'https://picsum.photos/600/600' : post.imagen),
         fecha: new Date()
       }
       this.arrPosts.unshift(nuevoPost);
@@ -86,7 +88,7 @@ export class PostService {
 
   }
 
-  getPost(name):Promise<Post>{
+  getPost(name): Promise<Post> {
     const prom = new Promise<Post>((resolve, reject) => {
       const thisPost = this.arrPosts.find(post => post.titulo === name);
       console.log(thisPost);

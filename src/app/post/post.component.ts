@@ -13,8 +13,8 @@ export class PostComponent implements OnInit {
   post: Post;
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
-    this.post=new Post();
-    this.postName ='';
+    this.post = new Post(undefined, '', '', '', '', '');
+    this.postName = '';
   }
 
   async ngOnInit() {

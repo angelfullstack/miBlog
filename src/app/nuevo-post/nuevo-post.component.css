@@ -1,0 +1,76 @@
+* {
+  /* border:1px solid blue; */
+}
+
+.nuevoPost {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.nuevoPost h2 {}
+
+.nuevoPostForm {}
+
+.form-control {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em 1em 0;
+  height: 6.125em;
+}
+
+.form-control:nth-child(5) {
+  height: 16em;
+}
+
+.form-control label {
+  display: block;
+  font-size: 1.125rem;
+  margin-bottom: .5rem;
+  font-weight: bold;
+  color: var(--color1);
+  text-shadow: .065em .065em .125em var(--color22);
+}
+
+.campo {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  box-shadow: .125em .125em .25em var(--color22) inset;
+  border: none;
+  border-radius: .5em;
+  height: 2em;
+  outline: none;
+  padding: .125em .5em;
+}
+
+textarea.campo {
+  min-height: 10em;
+}
+
+.campo[type="submit"] {
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: .125em .125em .25em var(--color22);
+  font-weight: bold;
+}
+
+.mandatory::before {
+  content: '*';
+}
+
+.nuevoPostForm p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.error {
+  color: var(--color8);
+}
+
+.warning {
+  color: var(--color7);
+}

@@ -1,36 +1,54 @@
-
 <!--   titulo: new FormControl(),
       autor: new FormControl(),
       categoria: new FormControl(),
       imagen: new FormControl(),
       texto: new FormControl(), -->
-      <section class="nuevoPost">
-        <h2>Nuevo Post</h2>
-        <form [formGroup]="nuevoPostForm" (ngSubmit)="manejarNuevoPost()">
-          <label>
-            Título:
-            <input type="text" formControlName="titulo">
-          </label>
-          <label>
-            Autor:
-            <input type="text" formControlName="autor">
-          </label>
-          <label>
-            Categoria:
-            <select formControlName="categoria">
-              <option value="categoria1">Categoría 1</option>
-              <option value="categoria2">Categoría 2</option>
-            </select>
-          </label>
-          <label>
-            Imagen de portada:
-            <input type="text" formControlName="imagen">
-          </label>
-          <label>
-            Título:
-            <textarea formControlName="texto">Escribe aquí tu post...</textarea>
-          </label>
-          <input type="submit">
+<section class="nuevoPost">
+  <h2>Nuevo Post</h2>
+  <form class="nuevoPostForm" [formGroup]="nuevoPostForm" (ngSubmit)="manejarNuevoPost()">
+    <div class="form-control">
+      <label class="mandatory">Título:</label>
+      <input class="campo" type="text" formControlName="titulo">
+      <p class="error" *ngIf="nuevoPostForm.controls.titulo.errors?.required && nuevoPostForm.controls.titulo.touched">
+        Este campo es obligatorio</p>
+    </div>
 
-        </form>
-      </section>
+    <div class="form-control">
+      <label>Autor:</label>
+      <input class="campo" type="text" formControlName="autor">
+      <p class="warning" *ngIf="nuevoPostForm.controls.autor.pristine && nuevoPostForm.controls.autor.touched">
+        Si no se escribe autor el post será anónimo por defecto</p>
+    </div>
+
+    <div class="form-control">
+      <label class="mandatory">Categoria:</label>
+      <select class="campo" formControlName="categoria">
+        <option value="categoria1">Categoría 1</option>
+        <option value="categoria2">Categoría 2</option>
+      </select>
+      <p class="error"
+        *ngIf="nuevoPostForm.controls.categoria.errors?.required && nuevoPostForm.controls.categoria.touched">
+        Es necesario seleccionar una categoría</p>
+    </div>
+
+    <div class="form-control">
+      <label>URL de la imagen de portada:</label>
+      <input class="campo" type="text" formControlName="imagen">
+      <p class="warning" *ngIf="nuevoPostForm.controls.imagen.pristine && nuevoPostForm.controls.imagen.touched">
+        Si no se selecciona una imagen se asignará una aleatoria por defecto</p>
+    </div>
+
+    <div class="form-control">
+      <label class="mandatory">Texto (acepta HTML):</label>
+      <textarea class="campo" formControlName="texto">Acepta HTML</textarea>
+      <p class="error" *ngIf="nuevoPostForm.controls.texto.errors?.required && nuevoPostForm.controls.texto.touched">El
+        post debe contener texto</p>
+    </div>
+
+    <div class="form-control">
+      <input class="campo" type="submit" value="Guardar y publicar" [disabled]="!nuevoPostForm.valid">
+      <p class="error" *ngIf="!nuevoPostForm.valid">Los campos marcados en rojo deben completarse</p>
+    </div>
+
+  </form>
+</section>

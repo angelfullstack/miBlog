@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 import { PostService } from '../post.service';
 
 @Component({
@@ -10,13 +11,19 @@ import { PostService } from '../post.service';
 export class NuevoPostComponent implements OnInit {
   textoHTML: string;
   nuevoPostForm: FormGroup;
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private router:Router) {
     this.nuevoPostForm = new FormGroup({
-      titulo: new FormControl(),
-      autor: new FormControl(),
-      categoria: new FormControl(),
-      imagen: new FormControl(),
-      texto: new FormControl(),
+      titulo: new FormControl('',[
+      Validators.required,
+      ]),
+      autor: new FormControl(''),
+      categoria: new FormControl('',[
+        Validators.required,
+      ]),
+      imagen: new FormControl(''),
+      texto: new FormControl('',[
+        Validators.required,
+      ]),
       textoHTML: new FormControl(),
     });
     this.textoHTML = '';
@@ -25,8 +32,9 @@ export class NuevoPostComponent implements OnInit {
   ngOnInit() {
   }
 
-  manejarNuevoPost() {
-    this.postService.addPost(this.nuevoPostForm.value);
+  async manejarNuevoPost() {
+    await this.postService.addPost(this.nuevoPostForm.value);
+    this.router.navigate(['/blog']);
 
 
   }
