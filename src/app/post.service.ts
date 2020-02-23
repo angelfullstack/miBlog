@@ -13,7 +13,7 @@ export class PostService {
   id: number;
 
   constructor() {
-    localStorage.clear();
+
     //Se comprueba si existe la entrada posts y si no está vacía en localStorage
     if (localStorage.getItem('posts') && JSON.parse(localStorage.getItem('posts')).length !== 0) {
       this.arrPosts = JSON.parse(localStorage.getItem('posts'))
@@ -78,8 +78,24 @@ export class PostService {
     const prom = new Promise<Post[]>((resolve, reject) => {
       console.log(this.arrPosts)
       resolve(this.arrPosts);
-    })
+    });
     return prom;
+  }
+
+  getPosts(totalPosts: number): Promise<Post[]> {
+    console.log(totalPosts)
+    const prom = new Promise<Post[]>((resolve, reject) => {
+      let posts: Post[] = [];
+      if (totalPosts === 0 || totalPosts === undefined) {
+        posts = this.arrPosts;
+      } else {
+        posts = this.arrPosts.slice(0, totalPosts);
+      }
+      console.log(this.arrPosts)
+      resolve(posts);
+    });
+    return prom;
+
   }
 
   getByCategory(category: string): Promise<Post[]> {
@@ -91,7 +107,7 @@ export class PostService {
       } else {
         resolve(this.arrPosts)
       }
-    })
+    });
     return prom;
   }
 
@@ -105,7 +121,7 @@ export class PostService {
         texto: post.texto,
         imagen: ((post.imagen === null || post.imagen === '') ? 'https://picsum.photos/600/600' : post.imagen),
         fecha: new Date()
-      }
+      };
       this.arrPosts.unshift(nuevoPost);
       resolve(this.arrPosts);
     })
@@ -121,7 +137,7 @@ export class PostService {
       const thisPost = this.arrPosts.find(post => post.titulo === name);
       console.log(thisPost);
       resolve(thisPost);
-    })
+    });
     localStorage.setItem('posts', JSON.stringify(this.arrPosts));
     return prom;
   }
@@ -131,9 +147,19 @@ export class PostService {
       this.arrPosts.splice(this.arrPosts.findIndex(post => post.id === id), 1);
       console.log('Borrado post con id ' + id);
       resolve(this.arrPosts);
-    })
+    });
     localStorage.setItem('posts', JSON.stringify(this.arrPosts));
     return prom;
+  }
+
+  resetBlog() {
+    const prom = new Promise((resolve, reject) => {
+
+      localStorage.clear();
+      resolve(console.log('Blog reiniciado'))
+    });
+    return prom;
+
   }
 }
 /*

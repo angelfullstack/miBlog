@@ -47,7 +47,7 @@
 
     <div class="form-control">
       <input class="campo" type="submit" value="Guardar y publicar" [disabled]="!nuevoPostForm.valid">
-      <p class="error" *ngIf="!nuevoPostForm.valid">Los campos marcados en rojo deben completarse</p>
+      <p class="error" *ngIf="!nuevoPostForm.valid && nuevoPostForm.touched">Los campos marcados en rojo deben completarse</p>
     </div>
 
   </form>

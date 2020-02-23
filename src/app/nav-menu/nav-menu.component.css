@@ -27,11 +27,20 @@ header h1, header nav {
 
 header h1 {
   left: 2rem;
-  font-size: 3rem;
+  width: 9rem;
+  height: 3rem;
   font-weight: bold;
-  color:var(--color3);
+  color: var(--color3);
   text-decoration: underline;
   text-decoration-thickness: .125em;
+}
+
+header h1.mask {
+  background:var(--color1);
+  height: 100%;
+  -webkit-mask: url('../../assets/images/logo.svg') no-repeat center;
+  mask: url('../../assets/images/logo.svg') no-repeat center;
+  mask-size: 8rem;
 }
 
 header nav {

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../models/post';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +10,20 @@ import { Router} from '@angular/router';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
+  @Input() totalPosts: number;
+  @Input() nombreSeccion:string;
   arrPosts: Post[];
-  constructor(private postService: PostService, private router:Router) {
+  constructor(private postService: PostService, private router: Router) {
+    if(this.totalPosts===undefined){
+      this.totalPosts=0;
+    }
+    if (this.nombreSeccion === undefined) {
+      this.nombreSeccion = 'Todos los posts';
+    }
   }
 
   async ngOnInit() {
-    this.arrPosts = await this.postService.getAll();
+    this.arrPosts = await this.postService.getPosts(this.totalPosts);
 
   }
 

@@ -1,0 +1,43 @@
+section {
+
+}
+
+p {
+  line-height: 1.5em;
+  margin-bottom: 2em;
+  color: var(--color1);
+}
+
+ul {
+  margin-left: 2em;
+  color: var(--color1);
+}
+
+li {
+  margin: 1.5em;
+  line-height: 1.5em;
+  list-style-type: disc;
+}
+
+section button {
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: var(--color8);
+  margin: 1em;
+  color: var(--color1);
+  padding: .5em;
+  font-weight: bold;
+  border-radius: .25em;
+  outline: none;
+  border: 3px solid var(--color1);
+  box-shadow: 0 0 0px transparent;
+  transition:.5s;
+  cursor: pointer;
+}
+
+section button:hover {
+  box-shadow: 0 0 30px var(--color8);
+}

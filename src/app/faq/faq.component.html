@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <section class="container">
+    <h2>Ayuda</h2>
+    <p>Este blog es 100% front-end y necesita una implementación back-end para ser funcional. Es ejercicio simple de práctica con Angular cuyo objetivo es afianzar conceptos como routing, manejo de servicios, local-storage, formularios, entre otras funcionalidades.</p>
+    <p>Para borrar un post hay un botón al final de cada artículo</p>
+    <p>Habría que añadir diferentes funcionalidads como:</p>
+    <ul>
+      <li>Gestión de usuarios. Ahora mismo cualquier usuario puede crear y borrar posts</li>
+      <li>Texto enriquecido. Se puede insertar contenido html en el formulario de nuevo-post, que es un primer paso.</li>
+      <li>El routing de los posts se basa en el nombre de cada post. Lo ideal sería que en la URL apareciera el título del post, pero que el en enrutamiento se hiciera a través de la ID de cada post</li>
+    </ul>
+
+    <p>Este botón reinicia el blog con los posts por defecto, borrando los creados por el usuario. Tras pulsarlo refresca el navegador para que el reset tenga efecto</p>
+    <button (click)="borrarLS()">Reset de los posts</button>
+  </section>
+</div>

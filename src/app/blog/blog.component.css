@@ -1,8 +1,13 @@
+section {
+  height: auto;
+}
+
 .flex {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-content: space-around;
+  filter: drop-shadow(10px 10px 10px black);
 }
 
 .miniCont {
@@ -13,14 +18,20 @@
   height: 300px;
   cursor: pointer;
   transform: scale(1);
-   transition: .5s;
+  transition: .5s;
+  border: 2px solid var(--color2)
 }
 
+.miniCont:nth-child(3n+1) {
+  width: 600px;
+}
 
-
+.miniCont:nth-child(4n+1) {
+  width: 600px;
+}
 
 .miniCont:hover {
-  transform: scale(1.1);
+  transform: scale(1);
   z-index: 5;
 }
 
@@ -41,7 +52,7 @@
   background: transparent;
 }
 
-.miniCont a{
+.miniCont a {
   display: block;
   height: 300px;
   width: 100%;
@@ -58,6 +69,11 @@
   height: 100%;
 }
 
+.miniCont:nth-child(4n+1) img, .miniCont:nth-child(3n+1) img {
+  width: 100%;
+  height: auto;
+}
+
 .miniCont h3 {
   height: auto;
   width: 90%;
@@ -66,13 +82,10 @@
   font-size: 2rem;
   z-index: 100;
   transition: .5s;
-  background:transparent;
-  padding:.5em;
+  background: transparent;
+  padding: .5em;
 }
 
-.miniCont:hover h3{
-
-  background:var(--color1);
-
-
+.miniCont:hover h3 {
+  background: var(--color1);
 }

@@ -1,0 +1,11 @@
+p{
+  color:var(--color2);
+  background:var(--color1);
+  margin-top:2em;
+  padding:.5em;
+}
+
+p a{
+  text-decoration: none;
+  color:var(--color5)
+}

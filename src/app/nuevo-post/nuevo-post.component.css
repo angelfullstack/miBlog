@@ -3,6 +3,7 @@
 }
 
 .nuevoPost {
+  height: auto;
 
 }
 
@@ -45,6 +46,7 @@
 
 textarea.campo {
   min-height: 10em;
+  background:var(--color1)
 }
 
 .campo[type="submit"] {

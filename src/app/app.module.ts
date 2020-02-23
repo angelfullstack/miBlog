@@ -9,6 +9,9 @@ import { NuevoPostComponent } from './nuevo-post/nuevo-post.component';
 import { BlogComponent } from './blog/blog.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { PostComponent } from './post/post.component';
+import { FaqComponent } from './faq/faq.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { PostComponent } from './post/post.component';
     NuevoPostComponent,
     BlogComponent,
     NavMenuComponent,
-    PostComponent
+    PostComponent,
+    FaqComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
 <header class="container-fluid">
   <div class="container">
-    <h1>mi Blog</h1>
+    <a [routerLink]="['/']" ><h1 title="miBlog"><img src="../../assets/images/logo.svg" alt=""></h1></a>
     <nav class="row">
       <ul>
         <li><a [routerLink]="['/blog']">Blog</a> </li>
         <li><a [routerLink]="['/nuevo']">Nuevo</a> </li>
+        <li><a [routerLink]="['/faq']">Ayuda</a> </li>
       </ul>
     </nav>
   </div>
