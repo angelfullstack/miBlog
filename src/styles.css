@@ -18,15 +18,16 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
-  display:none;
+::-webkit-scrollbar {
+  display: none;
 }
 
-html{
+html {
   scrollbar-width: none;
 }
 
 body {
+  position: relative;
   font-family: 'Rubik', sans-serif;
   background: linear-gradient(var(--color4), var(--color5));
   color: var(--color2);
@@ -59,6 +60,6 @@ h3 {
   margin: 0 auto;
 }
 
-app-component{
- height: 100vh;
+.wrapper{
+  padding:4em 0;
 }
