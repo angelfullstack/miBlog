@@ -10,7 +10,7 @@ header::after {
   content: '';
   display: block;
   width: 100%;
-  height: 1em;
+  height: 3px;
   background: var(--color2);
 }
 
@@ -35,12 +35,8 @@ header h1 {
   text-decoration-thickness: .125em;
 }
 
-header h1.mask {
-  background:var(--color1);
-  height: 100%;
-  -webkit-mask: url('../../assets/images/logo.svg') no-repeat center;
-  mask: url('../../assets/images/logo.svg') no-repeat center;
-  mask-size: 8rem;
+header h1 img {
+  filter: drop-shadow(10px 10px 5px var(--color2))
 }
 
 header nav {
