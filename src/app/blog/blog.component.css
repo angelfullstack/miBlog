@@ -2,6 +2,17 @@ section {
   height: auto;
 }
 
+.filtros {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.filtro {}
+
+.filtro label {
+  color: var(--color1)
+}
+
 .flex {
   display: flex;
   flex-flow: row wrap;
@@ -91,4 +102,25 @@ section {
 
 .miniCont:hover h3 {
   background: var(--color1);
+}
+
+.miniCont .datos {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color:transparent;
+  padding: 1em;
+  font-size: .7rem;
+  transition: .5s;
+}
+
+.miniCont:hover .datos {
+  color:var(--color4);
+  background: var(--color1);
+}
+
+.miniCont .datos h4{
+  width:100%;
 }

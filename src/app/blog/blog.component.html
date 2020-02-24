@@ -2,12 +2,14 @@
 
   <h2>{{nombreSeccion}}</h2>
   <div class="filtros container" *ngIf="totalPosts===0">
-    <label>Selecciona una categoría</label>
-    <select name="" id="" (change)="recogerCategoria($event)">
-      <option value="">Todas</option>
-      <option value="categoria1">Categoría 1</option>
-      <option value="categoria2">Categoría 2</option>
-    </select>
+    <div class="filtro">
+      <label>Categoría: </label>
+      <select name="" id="" (change)="recogerCategoria($event)">
+        <option value="">Todas</option>
+        <option value="categoria1">Categoría 1</option>
+        <option value="categoria2">Categoría 2</option>
+      </select>
+    </div>
   </div>
 
   <div class="container">
@@ -17,6 +19,13 @@
 
         <img [src]="post.imagen" alt="">
         <h3>{{post.titulo}}</h3>
+
+       <div class="datos">
+          <h4 class="datos">Creado por {{post.autor}} </h4>
+          <h4>{{post.fecha | date:'dd/MM/yyyy'}} a las
+            {{ post.fecha | date:'hh:mm'}}</h4>
+       </div>
+
 
 
       </article>

@@ -4,7 +4,6 @@
 
 .nuevoPost {
   height: auto;
-
 }
 
 .nuevoPost h2 {}
@@ -46,7 +45,7 @@
 
 textarea.campo {
   min-height: 10em;
-  background:var(--color1)
+  background: var(--color1)
 }
 
 .campo[type="submit"] {
@@ -54,9 +53,17 @@ textarea.campo {
   margin: 0 auto;
   box-shadow: .125em .125em .25em var(--color22);
   font-weight: bold;
-  background: var(--color7);
-  color:var(--color1);
+  background: var(--color8);
+  color: var(--color1);
+  transition: .4s;
+}
 
+.campo[type="submit"]:enabled {
+  background: var(--color7);
+}
+
+.campo[type="submit"]:hover:enabled {
+  box-shadow: 0 0 30px var(--color7);
 }
 
 .mandatory::before {
