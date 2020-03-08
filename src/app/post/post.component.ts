@@ -10,6 +10,7 @@ import { Post } from '../models/post';
 })
 export class PostComponent implements OnInit {
   postName: string;
+  postId: string;
   post: Post;
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private router: Router) {
@@ -17,16 +18,26 @@ export class PostComponent implements OnInit {
     this.postName = '';
   }
 
+  /*   async ngOnInit() {
+      this.activatedRoute.params.subscribe(params => { this.postName = params.postName; })
+      console.log(this.postName);
+      this.postName = this.postName.replace(/-/g, ' ');
+      this.post = await this.postService.getPost(this.postName);
+    } */
+
   async ngOnInit() {
-    this.activatedRoute.params.subscribe(params => { this.postName = params.postName; })
-    console.log(this.postName);
-    this.postName = this.postName.replace(/-/g, ' ');
-    this.post = await this.postService.getPost(this.postName);
+    this.activatedRoute.params.subscribe(params => { this.postId = params.postId; });
+    console.log(this.postId)
+    try {
+      this.post = await this.postService.getPost(this.postId);
+    } catch (err) {
+      console.log('Post no encontrado')
+    }
   }
 
   async manejarBorrar(id) {
     console.log(id);
-    await this.postService.deletePost(id);
+    await this.postService.deleteById(id);
     this.router.navigate(['/blog']);
   }
 

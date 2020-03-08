@@ -12,7 +12,7 @@
     <div class="cabecera">
       <h2>{{post.titulo}}</h2>
     </div>
-    <p [innerHtml]="post.texto"></p>
+    <p [innerHtml]="post.contenido"></p>
     <button (click)="manejarBorrar(post.id)">Borrar este post</button>
   </div>
 

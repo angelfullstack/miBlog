@@ -148,6 +148,27 @@ export class PostService {
 
     } */
 
+  /* getPost(name): Promise < Post > {
+    const prom = new Promise<Post>((resolve, reject) => {
+      const thisPost = this.arrPosts.find(post => post.titulo === name);
+      console.log(thisPost);
+      resolve(thisPost);
+    });
+    localStorage.setItem('posts', JSON.stringify(this.arrPosts));
+    return prom;
+  } */
+  getPost(pId): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        id: pId
+      })
+
+
+
+    };
+    return this.httpClient.get(this.baseUrl + '/getone', httpOptions).toPromise();
+  }
   getByCategory(category: string): Promise<Post[]> {
     const prom = new Promise<Post[]>((resolve, reject) => {
       if (category !== '') {
@@ -188,35 +209,39 @@ export class PostService {
     return this.httpClient.post(this.baseUrl, body).toPromise();
   }
 
-getPost(name): Promise < Post > {
-  const prom = new Promise<Post>((resolve, reject) => {
-    const thisPost = this.arrPosts.find(post => post.titulo === name);
-    console.log(thisPost);
-    resolve(thisPost);
-  });
-  localStorage.setItem('posts', JSON.stringify(this.arrPosts));
-  return prom;
+deleteById(pId:number):Promise<any>{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      id: pId.toString()
+    })
+
+
+
+  };
+  return this.httpClient.delete(this.baseUrl, httpOptions).toPromise();
 }
 
-deletePost(id) {
-  const prom = new Promise<Post[]>((resolve, reject) => {
-    this.arrPosts.splice(this.arrPosts.findIndex(post => post.id === id), 1);
-    console.log('Borrado post con id ' + id);
-    resolve(this.arrPosts);
-  });
-  localStorage.setItem('posts', JSON.stringify(this.arrPosts));
-  return prom;
-}
 
-resetBlog() {
-  const prom = new Promise((resolve, reject) => {
+/*   deletePost(id) {
+    const prom = new Promise<Post[]>((resolve, reject) => {
+      this.arrPosts.splice(this.arrPosts.findIndex(post => post.id === id), 1);
+      console.log('Borrado post con id ' + id);
+      resolve(this.arrPosts);
+    });
+    localStorage.setItem('posts', JSON.stringify(this.arrPosts));
+    return prom;
+  } */
 
-    localStorage.clear();
-    resolve(console.log('Blog reiniciado'))
-  });
-  return prom;
+  resetBlog() {
+    const prom = new Promise((resolve, reject) => {
 
-}
+      localStorage.clear();
+      resolve(console.log('Blog reiniciado'))
+    });
+    return prom;
+
+  }
 }
 /*
    id: number,

@@ -44,9 +44,12 @@ export class BlogComponent implements OnInit {
 
 
 
-  manejarEntrar(titulo) {
+ /*  manejarEntrar(titulo) {
     const tituloUrl = titulo.replace(/ /g, '-');
     console.log(tituloUrl);
     this.router.navigate(['/blog', tituloUrl]);
+  } */
+  manejarEntrar(id) {
+     this.router.navigate(['/blog', id]);
   }
 }

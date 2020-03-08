@@ -15,7 +15,7 @@
   <div class="container">
     <div class="flex">
 
-      <article class="miniCont" *ngFor="let post of arrPosts" (click)="manejarEntrar(post.titulo)">
+      <article class="miniCont" *ngFor="let post of arrPosts" (click)="manejarEntrar(post.id)">
 
         <img [src]="post.imagen" alt="">
         <h3>{{post.titulo}}</h3>
