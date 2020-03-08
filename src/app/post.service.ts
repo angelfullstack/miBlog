@@ -3,6 +3,8 @@ boton resetear blog que borra local storage y repone posts por defecto
 verificar en formulario si nombre de post existe */
 import { Injectable } from '@angular/core';
 import { Post } from './models/post';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +13,12 @@ export class PostService {
 
   arrPosts: Post[];
   id: number;
+  baseUrl: string;
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
+    this.baseUrl = 'http://localhost:3000/api/posts';
 
-    //Se comprueba si existe la entrada posts y si no está vacía en localStorage
+    /* //Se comprueba si existe la entrada posts y si no está vacía en localStorage
     if (localStorage.getItem('posts') && JSON.parse(localStorage.getItem('posts')).length !== 0) {
       this.arrPosts = JSON.parse(localStorage.getItem('posts'))
     } else {
@@ -71,32 +75,78 @@ export class PostService {
       //Si no hay lastID en LS se usa la siguiente posición de arrPosts
       this.id = this.arrPosts.length + 1;
     }
+ */
+
   }
 
+  /*   getAll(): Promise<Post[]> {
+      const prom = new Promise<Post[]>((resolve, reject) => {
+        console.log(this.arrPosts)
+        resolve(this.arrPosts);
+      });
+      return prom;
+    } */
 
-  getAll(): Promise<Post[]> {
-    const prom = new Promise<Post[]>((resolve, reject) => {
-      console.log(this.arrPosts)
-      resolve(this.arrPosts);
-    });
-    return prom;
+  getAll(): Promise<any> {
+    return this.httpClient.get(this.baseUrl).toPromise();
   }
 
   getPosts(totalPosts: number): Promise<Post[]> {
     console.log(totalPosts)
     const prom = new Promise<Post[]>((resolve, reject) => {
-      let posts: Post[] = [];
+      let posts: any = [];
       if (totalPosts === 0 || totalPosts === undefined) {
-        posts = this.arrPosts;
+        posts = this.httpClient.get(this.baseUrl).toPromise();
+        console.log(posts);
+        resolve(posts);
       } else {
-        posts = this.arrPosts.slice(0, totalPosts);
+        posts = this.httpClient.get(this.baseUrl).toPromise();
+        resolve(posts);
       }
       console.log(this.arrPosts)
-      resolve(posts);
+
     });
     return prom;
 
   }
+
+  getSome(postNumber: number): Promise<any> {
+    console.log('numerito ' + postNumber)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        number: postNumber.toString()
+      }),
+
+
+    };
+    return this.httpClient.get(this.baseUrl + '/getsome', httpOptions).toPromise();
+
+  }
+
+  /*     getAll(): Promise<Post[]> {
+      const prom = new Promise<Post[]>((resolve, reject) => {
+        console.log(this.arrPosts)
+        resolve(this.arrPosts);
+      });
+      return prom;
+    }
+
+    getPosts(totalPosts: number): Promise<Post[]> {
+      console.log(totalPosts)
+      const prom = new Promise<Post[]>((resolve, reject) => {
+        let posts: Post[] = [];
+        if (totalPosts === 0 || totalPosts === undefined) {
+          posts = this.arrPosts;
+        } else {
+          posts = this.arrPosts.slice(0, totalPosts);
+        }
+        console.log(this.arrPosts)
+        resolve(posts);
+      });
+      return prom;
+
+    } */
 
   getByCategory(category: string): Promise<Post[]> {
     const prom = new Promise<Post[]>((resolve, reject) => {

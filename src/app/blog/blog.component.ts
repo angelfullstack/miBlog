@@ -11,20 +11,30 @@ import { Router } from '@angular/router';
 })
 export class BlogComponent implements OnInit {
   @Input() totalPosts: number;
-  @Input() nombreSeccion:string;
+  @Input() nombreSeccion: string;
   arrPosts: Post[];
   constructor(private postService: PostService, private router: Router) {
-    if(this.totalPosts===undefined){
-      this.totalPosts=0;
+    if (this.totalPosts === undefined) {
+      this.totalPosts = 100;
     }
     if (this.nombreSeccion === undefined) {
       this.nombreSeccion = 'Todos los posts';
     }
   }
 
-  async ngOnInit() {
-    this.arrPosts = await this.postService.getPosts(this.totalPosts);
+  /*   async ngOnInit() {
+      this.arrPosts = await this.postService.getPosts(this.totalPosts);
 
+    } */
+
+  ngOnInit() {
+    this.postService.getSome(this.totalPosts)
+      .then(response => {
+        console.log(response);
+        this.arrPosts = response;
+      })
+      .catch(err => { console.log('hola');
+      });
   }
 
   async recogerCategoria($event) {
