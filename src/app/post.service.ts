@@ -161,7 +161,7 @@ export class PostService {
     return prom;
   }
 
-  addPost(post: Post): Promise<Post[]> {
+  /* addPost(post: Post): Promise<Post[]> {
     const prom = new Promise<Post[]>((resolve, reject) => {
       const nuevoPost: Post = {
         id: this.id,
@@ -180,37 +180,43 @@ export class PostService {
     localStorage.setItem('lastId', JSON.stringify(this.id));
     return prom;
 
+  } */
+
+  create(post: Post): Promise<any> {
+    /*lo intenté pasar con HttpHeaders, pero daba error, le he pasado sólo el body y funciona*/
+    const body = post;
+    return this.httpClient.post(this.baseUrl, body).toPromise();
   }
 
-  getPost(name): Promise<Post> {
-    const prom = new Promise<Post>((resolve, reject) => {
-      const thisPost = this.arrPosts.find(post => post.titulo === name);
-      console.log(thisPost);
-      resolve(thisPost);
-    });
-    localStorage.setItem('posts', JSON.stringify(this.arrPosts));
-    return prom;
-  }
+getPost(name): Promise < Post > {
+  const prom = new Promise<Post>((resolve, reject) => {
+    const thisPost = this.arrPosts.find(post => post.titulo === name);
+    console.log(thisPost);
+    resolve(thisPost);
+  });
+  localStorage.setItem('posts', JSON.stringify(this.arrPosts));
+  return prom;
+}
 
-  deletePost(id) {
-    const prom = new Promise<Post[]>((resolve, reject) => {
-      this.arrPosts.splice(this.arrPosts.findIndex(post => post.id === id), 1);
-      console.log('Borrado post con id ' + id);
-      resolve(this.arrPosts);
-    });
-    localStorage.setItem('posts', JSON.stringify(this.arrPosts));
-    return prom;
-  }
+deletePost(id) {
+  const prom = new Promise<Post[]>((resolve, reject) => {
+    this.arrPosts.splice(this.arrPosts.findIndex(post => post.id === id), 1);
+    console.log('Borrado post con id ' + id);
+    resolve(this.arrPosts);
+  });
+  localStorage.setItem('posts', JSON.stringify(this.arrPosts));
+  return prom;
+}
 
-  resetBlog() {
-    const prom = new Promise((resolve, reject) => {
+resetBlog() {
+  const prom = new Promise((resolve, reject) => {
 
-      localStorage.clear();
-      resolve(console.log('Blog reiniciado'))
-    });
-    return prom;
+    localStorage.clear();
+    resolve(console.log('Blog reiniciado'))
+  });
+  return prom;
 
-  }
+}
 }
 /*
    id: number,

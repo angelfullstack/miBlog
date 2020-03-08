@@ -21,10 +21,9 @@ export class NuevoPostComponent implements OnInit {
         Validators.required,
       ]),
       imagen: new FormControl(''),
-      texto: new FormControl('', [
+      contenido: new FormControl('', [
         Validators.required,
       ]),
-      textoHTML: new FormControl(),
     });
     this.textoHTML = '';
   }
@@ -33,8 +32,9 @@ export class NuevoPostComponent implements OnInit {
   }
 
   async manejarNuevoPost() {
+    console.log(this.nuevoPostForm.value);
     try {
-      await this.postService.addPost(this.nuevoPostForm.value);
+      await this.postService.create(this.nuevoPostForm.value);
       this.router.navigate(['/blog']);
     } catch (err) {
       console.log('El error es:' + err);

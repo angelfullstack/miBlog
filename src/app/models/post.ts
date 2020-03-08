@@ -5,13 +5,13 @@ export class Post {
   fecha: Date;
   categoria: string;
   imagen: string;
-  texto: string;
+  contenido: string;
   constructor(
     id: number,
     titulo: string,
     autor: string,
     categoria: string,
-    texto: string,
+    contenido: string,
     imagen: string,
     fecha: Date = new Date()
   ) {
@@ -19,7 +19,7 @@ export class Post {
     this.titulo = titulo;
     this.autor = autor;
     this.categoria = categoria;
-    this.texto = texto;
+    this.contenido = contenido;
     this.imagen = imagen;
     this.fecha = fecha;
   }
