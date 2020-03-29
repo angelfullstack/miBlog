@@ -85,3 +85,14 @@ textarea.campo {
 .warning {
   color: var(--color7);
 }
+
+.quill{
+  width: 90%;
+  margin:0 auto;
+  background:var(--color1);
+  border-radius: 50%;
+}
+
+.quill {
+  font-weight: bold;
+}

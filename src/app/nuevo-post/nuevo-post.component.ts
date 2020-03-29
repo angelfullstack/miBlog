@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PostService } from '../post.service';
 
+
 @Component({
   selector: 'app-nuevo-post',
   templateUrl: './nuevo-post.component.html',
@@ -11,7 +12,11 @@ import { PostService } from '../post.service';
 export class NuevoPostComponent implements OnInit {
   textoHTML: string;
   nuevoPostForm: FormGroup;
+  editorStyle: any;
   constructor(private postService: PostService, private router: Router) {
+    this.editorStyle = {
+
+    }
     this.nuevoPostForm = new FormGroup({
       titulo: new FormControl('', [
         Validators.required,
@@ -24,6 +29,7 @@ export class NuevoPostComponent implements OnInit {
       contenido: new FormControl('', [
         Validators.required,
       ]),
+      quill: new FormControl(null)
     });
     this.textoHTML = '';
   }

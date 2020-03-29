@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/miBlog",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

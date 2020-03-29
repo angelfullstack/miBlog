@@ -1,5 +1,8 @@
 @import url('reset.css');
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap');
+/* @import '../node_modules/quill/dist/quill.core.css';
+@import '../node_modules/quill/dist/quill.bubble.css'; */
+@import '../node_modules/quill/dist/quill.snow.css';
 :root {
   --color1: #fffffa;
   --color11: #fffffacc;
@@ -60,6 +63,8 @@ h3 {
   margin: 0 auto;
 }
 
-.wrapper{
-  padding:4em 0;
+.wrapper {
+  padding: 4em 0;
 }
+
+

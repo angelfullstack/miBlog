@@ -38,10 +38,17 @@
         Si no se selecciona una imagen se asignará una aleatoria por defecto</p>
     </div>
 
-    <div class="form-control">
+    <!-- <div class="form-control">
       <label class="mandatory">Texto (acepta HTML):</label>
       <textarea class="campo" formControlName="contenido">Acepta HTML</textarea>
       <p class="error" *ngIf="nuevoPostForm.controls.contenido.errors?.required && nuevoPostForm.controls.contenido.touched">El
+        post debe contener texto</p>
+    </div> -->
+    <div class="form-control">
+      <label class="mandatory">Texto (acepta HTML):</label>
+      <quill-editor class="quill" formControlName="contenido" [styles]="editorStyle"></quill-editor>
+      <p class="error" *ngIf="nuevoPostForm.controls.contenido.errors?.required && nuevoPostForm.controls.contenido.touched">
+        El
         post debe contener texto</p>
     </div>
 

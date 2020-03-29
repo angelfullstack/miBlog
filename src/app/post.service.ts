@@ -16,7 +16,7 @@ export class PostService {
   baseUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.baseUrl = 'http://localhost:3000/api/posts';
+    this.baseUrl = 'https://miblog7.herokuapp.com/api/posts/api/posts';
 
     /* //Se comprueba si existe la entrada posts y si no está vacía en localStorage
     if (localStorage.getItem('posts') && JSON.parse(localStorage.getItem('posts')).length !== 0) {
